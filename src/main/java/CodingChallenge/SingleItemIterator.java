@@ -1,11 +1,13 @@
 package CodingChallenge;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 
 public class SingleItemIterator implements IIterator {
     private final IItem[] items;
     private int itemCursor = 0;
     private int itemCountCursor = -1;
+    private ArrayList<Integer> productUptoConcurrentIndex = new ArrayList<>();
 
     public SingleItemIterator(IItem[] items) {
         this.items = items;
@@ -19,6 +21,7 @@ public class SingleItemIterator implements IIterator {
     @Override
     public IItem next() {
         if (items[itemCursor].getTargetQuantity() <= itemCountCursor + 1) {
+            productUptoConcurrentIndex.add(itemCountCursor + 1);
             itemCountCursor = -1;
             itemCursor++;
         }
@@ -40,5 +43,28 @@ public class SingleItemIterator implements IIterator {
                 .map(item -> item.getTargetQuantity())
                 .reduce(0, (subtotal, element) -> subtotal + element);
 
+    }
+
+    @Override
+    public void reset() {
+        itemCursor = 0;
+        itemCountCursor = -1;
+    }
+
+    /**
+     * @param index zero based if a product was available 2 times it has the indexes 0 and 1
+     * @return
+     */
+    @Override
+    public IItem convertConcurrentIndexToItem(int index) {
+        if (!this.hasNext()) { //only works if all items are iterated
+            for (int i = 0; i < productUptoConcurrentIndex.size(); i++) {
+                if (index < productUptoConcurrentIndex.get(i)) {
+                    return items[i];
+                }
+            }
+            return items[productUptoConcurrentIndex.size()]; //as they get added in the .next() last breaker is not in array
+        }
+        return null; //count up to on og items
     }
 }
