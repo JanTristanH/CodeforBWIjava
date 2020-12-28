@@ -3,15 +3,16 @@ package CodingChallenge;
 import java.util.HashMap;
 import java.util.Map;
 
-public class Truck implements ITruck {
+public class Truck extends ItemStorage implements ITruck {
     private int capacityGramm;
     private int weightEquipment;
-    private Map<String, IItem> loadedProducts;
+
 
     Truck(int capacityGramm, int weightEquipment) {
+        super();
         this.weightEquipment = weightEquipment;
         this.capacityGramm = capacityGramm;
-        this.loadedProducts = new HashMap<String, IItem>();
+
     }
 
     public int getCapacityGramm() {
@@ -20,22 +21,6 @@ public class Truck implements ITruck {
 
     public int getFreeCapacity() {
         return capacityGramm - weightEquipment - this.getTotalLoad();
-    }
-
-    public void loadItem(IItem item) {
-        if (!loadedProducts.containsKey(item.getName())) {
-            loadedProducts.put(item.getName(), item);//todo maybe use artificial key
-        } else {
-            IItem p = loadedProducts.get(item.getName());
-            p.setQuantity(p.getQuantity() + item.getQuantity());
-            loadedProducts.put(p.getName(), p);
-        }
-    }
-
-    public int getTotalLoad() {
-        return loadedProducts.values().stream()
-                .map(item -> item.getQuantity() * item.getWeightInGramm())
-                .reduce(0, (subtotal, element) -> subtotal + element);
     }
 
 

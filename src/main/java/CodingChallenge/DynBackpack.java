@@ -48,9 +48,9 @@ public class DynBackpack implements IAlgorithm {
     @Override
     public ITruck[] calculate() {
         //Todo iteraten
-        for (int i = 0; i < trucks.length; i++) {
+        for (ITruck truck : trucks) {
             //todo iterator clearen
-            int[][] matrix = this.calculateMatrix(trucks[i]);
+            int[][] matrix = this.calculateMatrix(truck);
             //todo backtrack
             //todo prepare for next truck
         }

@@ -8,8 +8,8 @@ import static org.hamcrest.MatcherAssert.assertThat;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
 
-public class TruckTest {
-    private Truck cut;
+public class ItemStorageTest {
+    private ItemStorage cut;
     IItem item1;
     IItem item2;
 
@@ -25,21 +25,34 @@ public class TruckTest {
         when(item2.getWeightInGramm()).thenReturn(10);
         when(item2.getQuantity()).thenReturn(1);
 
-        cut = new Truck(100000,87000);
-    }
-    @Test
-    public void getFreeInialCapacity (){
-        assertThat(cut.getFreeCapacity(), is(13000));
-    }
-    @Test
-    public void getCapacity (){
-        assertThat(cut.getCapacityGramm(), is(100000));
+        cut = new ItemStorage();
     }
 
     @Test
-    public void initialLoadZero(){
+    public void LoadOneItem() {
+        cut.loadItem(item1);
+        assertThat(cut.getTotalLoad(), is(15));
+    }
+
+    @Test
+    public void LoadTwoDifferentItems() {
+        cut.loadItem(item1);
+        cut.loadItem(item2);
+        assertThat(cut.getTotalLoad(), is(25));
+    }
+
+    @Test
+    public void removeOneItem() {
+        cut.loadItem(item1);
+        cut.unLoadItem(item1);
         assertThat(cut.getTotalLoad(), is(0));
     }
 
-
+    @Test
+    public void unloadOneOfTwoItems() {
+        cut.loadItem(item1);
+        cut.loadItem(item2);
+        cut.unLoadItem(item2);
+        assertThat(cut.getTotalLoad(), is(15));
+    }
 }
