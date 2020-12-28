@@ -67,9 +67,9 @@ public class SingleItemIteratorTest {
     public void concurrentIndexToProduct() {
         hasNextAndNext(2, item1);
         hasNextAndNext(2, item2);
-        assertThat(cut.convertConcurrentIndexToItem(0),is(item1));
-        assertThat(cut.convertConcurrentIndexToItem(1),is(item1));
-        assertThat(cut.convertConcurrentIndexToItem(2),is(item2));
-        assertThat(cut.convertConcurrentIndexToItem(3),is(item2));
+        assertThat(cut.convertConcurrentIndexToItem(0), is(item1));
+        assertThat(cut.convertConcurrentIndexToItem(1), is(item1));
+        assertThat(cut.convertConcurrentIndexToItem(2), is(item2));
+        assertThat(cut.convertConcurrentIndexToItem(3), is(item2));
     }
 }
