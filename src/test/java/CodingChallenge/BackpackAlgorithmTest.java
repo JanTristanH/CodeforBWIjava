@@ -3,6 +3,8 @@ package CodingChallenge;
 import org.junit.Before;
 import org.junit.Test;
 
+import java.util.ArrayList;
+
 import static org.hamcrest.CoreMatchers.hasItems;
 import static org.hamcrest.CoreMatchers.is;
 import static org.hamcrest.MatcherAssert.assertThat;
@@ -17,6 +19,7 @@ public class BackpackAlgorithmTest {
     IItem itemB = mock(IItem.class);
     IItem itemC = mock(IItem.class);
     IItem itemD = mock(IItem.class);
+    IItemStorage iStorage;
 
     @Before
     public void before() {
@@ -55,7 +58,16 @@ public class BackpackAlgorithmTest {
         when(iterator.convertConcurrentIndexToItem(2)).thenReturn(itemC);
         when(iterator.convertConcurrentIndexToItem(3)).thenReturn(itemD);
 
-        cut = new DynBackpack(new ITruck[]{truck1}, iterator);
+        iStorage = mock(IItemStorage.class);
+        ArrayList<IItem> al = new ArrayList<>();
+        al.add(itemA);
+        al.add(itemB);
+        al.add(itemC);
+        al.add(itemD);
+
+        when(iStorage.getAllItems()).thenReturn(al);
+
+        cut = new DynBackpack(new ITruck[]{truck1}, iStorage);
     }
 
     @Test
@@ -66,7 +78,7 @@ public class BackpackAlgorithmTest {
                 {0, 0, 10, 30, 50, 50, 60, 80, 80, 90, 90},
                 {0, 0, 10, 30, 50, 50, 60, 80, 80, 100, 100}
         };
-        assertThat(cut.calculateMatrix(truck1), is(resultMatrix));
+        assertThat(cut.calculateMatrix(truck1,iterator), is(resultMatrix));
     }
 
     @Test
@@ -77,8 +89,8 @@ public class BackpackAlgorithmTest {
                 {0, 0, 10, 30, 50, 50, 60, 80, 80, 90, 90},
                 {0, 0, 10, 30, 50, 50, 60, 80, 80, 100, 100}
         };
-        cut.calculateMatrix(truck1);
-        assertThat(cut.backtrackMatrixToIndex(resultMatrix), hasItems(itemD, itemB));
+        cut.calculateMatrix(truck1,iterator);
+        assertThat(cut.backtrackMatrixToIndex(resultMatrix,iterator,truck1,true), hasItems(itemD, itemB));
     }
 
 }

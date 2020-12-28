@@ -4,15 +4,16 @@ import java.util.ArrayList;
 
 public class DynBackpack implements IAlgorithm {
     private ITruck[] trucks;
-    private IIterator iterator;
+    private IItemStorage itemStorage;
 
-    public DynBackpack(ITruck[] trucks, IIterator iterator) {
+    public DynBackpack(ITruck[] trucks, IItemStorage itemStorage) {
+        this.itemStorage = itemStorage;
         this.trucks = trucks;
-        this.iterator = iterator;
+
     }
 
 
-    public int[][] calculateMatrix(ITruck truck) {
+    public int[][] calculateMatrix(ITruck truck, IIterator iterator) {
         //generate matrix for truck
         int[][] matrix = new int[iterator.maxCount() + 1][truck.getFreeCapacity() + 1];
         for (int i = 1; i < matrix.length; i++) {
@@ -30,14 +31,29 @@ public class DynBackpack implements IAlgorithm {
         return matrix;
     }
 
-    public ArrayList<IItem> backtrackMatrixToIndex(int[][] matrix) {
+    public ArrayList<IItem> backtrackMatrixToIndex(int[][] matrix,IIterator iterator,ITruck truck) {
+        return backtrackMatrixToIndex(matrix, iterator, truck,false) ;
+    }
+
+    /**
+     * @param matrix
+     * @param iterator
+     * @param truck
+     * @param testMode
+     * @return return value is only populated in test mode | otherwise it has side effects on truck and itemStorage
+     */
+    public ArrayList<IItem> backtrackMatrixToIndex(int[][] matrix,IIterator iterator,ITruck truck,boolean testMode) {
         ArrayList<IItem> itemList = new ArrayList<>();
         int currentWeight = matrix[0].length - 1;
         int currentItemIndex = matrix.length - 1;
         while (currentWeight > 0 && currentItemIndex > 0) {
             if (matrix[currentItemIndex][currentWeight] > matrix[currentItemIndex - 1][currentWeight]) {
                 IItem itemToLoad = iterator.convertConcurrentIndexToItem(currentItemIndex - 1); //- 1 as part of index shifting
-                itemList.add(itemToLoad);
+                if (testMode){
+                    itemList.add(itemToLoad);
+                }
+                truck.loadItem(itemToLoad);
+                itemStorage.unLoadItem(itemToLoad);
                 currentWeight = currentWeight - itemToLoad.getWeightInGramm();
             }
             currentItemIndex--;
@@ -47,12 +63,10 @@ public class DynBackpack implements IAlgorithm {
 
     @Override
     public ITruck[] calculate() {
-        //Todo iteraten
         for (ITruck truck : trucks) {
-            //todo iterator clearen
-            int[][] matrix = this.calculateMatrix(truck);
-            //todo backtrack
-            //todo prepare for next truck
+            IIterator iterator = new SingleItemIterator(itemStorage.getAllItems().toArray(new IItem[0]));
+            int[][] matrix = this.calculateMatrix(truck,iterator);
+            this.backtrackMatrixToIndex(matrix,iterator,truck);
         }
         return new ITruck[0];
     }
