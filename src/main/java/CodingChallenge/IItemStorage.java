@@ -1,5 +1,7 @@
 package CodingChallenge;
 
+import java.util.List;
+
 public interface IItemStorage {
     /**
      * @param item adds only 1 of the item; item key is name
@@ -10,4 +12,5 @@ public interface IItemStorage {
      */
     void unLoadItem(IItem item);
     int getTotalLoad();
+    List<IItem> getAllItems();
 }

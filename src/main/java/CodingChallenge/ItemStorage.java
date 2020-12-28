@@ -1,7 +1,12 @@
 package CodingChallenge;
 
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
+
+import static java.util.stream.Collectors.toCollection;
+import static java.util.stream.Collectors.toList;
 
 public class ItemStorage implements IItemStorage{
     private Map<String, IItem> loadedProducts;
@@ -15,6 +20,11 @@ public class ItemStorage implements IItemStorage{
         return loadedProducts.values().stream()
                 .map(item -> item.getQuantity() * item.getWeightInGramm())
                 .reduce(0, (subtotal, element) -> subtotal + element);
+    }
+
+    @Override
+    public List<IItem> getAllItems() {
+        return loadedProducts.values().stream().collect(toList());
     }
 
     @Override
