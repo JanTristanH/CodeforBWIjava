@@ -23,6 +23,13 @@ public class ItemStorage implements IItemStorage{
     }
 
     @Override
+    public int getTotalUtility() {
+        return loadedProducts.values().stream()
+                .map(item -> item.getQuantity() * item.getUtility())
+                .reduce(0, (subtotal, element) -> subtotal + element);
+    }
+
+    @Override
     public List<IItem> getAllItems() {
         return loadedProducts.values().stream().collect(toList());
     }

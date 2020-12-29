@@ -12,5 +12,6 @@ public interface IItemStorage {
      */
     void unLoadItem(IItem item);
     int getTotalLoad();
+    int getTotalUtility();
     List<IItem> getAllItems();
 }
