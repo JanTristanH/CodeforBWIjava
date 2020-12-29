@@ -6,6 +6,9 @@ public class Truck extends ItemStorage implements ITruck {
     private int capacityGramm;
     private int weightEquipment;
 
+    /**
+     * used by @objectMapper
+     */
     public Truck() {
 
     }
@@ -17,6 +20,10 @@ public class Truck extends ItemStorage implements ITruck {
     }
 
     public int getCapacityGramm() {
+        return getCapacity();
+    }
+
+    public int getCapacity() {
         return capacityGramm;
     }
 
@@ -27,6 +34,7 @@ public class Truck extends ItemStorage implements ITruck {
     public int getFreeCapacity() {
         return capacityGramm - weightEquipment - this.getTotalLoad();
     }
+
 
     public int getWeightEquipment() {
         return weightEquipment;

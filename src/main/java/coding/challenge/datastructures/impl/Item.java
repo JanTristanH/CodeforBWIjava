@@ -9,6 +9,10 @@ public class Item implements IItem,Cloneable {
     private int weightInGramm;
     private int utility;
 
+
+    /**
+     * used by @objectMapper
+     */
     public Item() {
 
     }
@@ -50,6 +54,9 @@ public class Item implements IItem,Cloneable {
     public int getUtility() {
         return utility;
     }
+
+    @Override
+    public void setWeightInGramm(int weightInGramm){this.weightInGramm = weightInGramm;}
 
     public IItem clone() {
         return new Item(name, targetQuantity, quantity, weightInGramm, utility);

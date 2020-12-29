@@ -5,7 +5,7 @@ import coding.challenge.output.ILogger;
 import java.io.BufferedWriter;
 import java.io.IOException;
 
-public class AbstractLogger implements ILogger {
+public abstract class AbstractLogger implements ILogger {
     protected BufferedWriter writer;
 
     public void close() {

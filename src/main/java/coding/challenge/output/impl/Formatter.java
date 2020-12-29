@@ -8,6 +8,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 
 import java.util.Arrays;
 import java.util.List;
+import java.util.function.BinaryOperator;
 
 public class Formatter implements IFormatter {
     @Override
@@ -19,7 +20,7 @@ public class Formatter implements IFormatter {
             builder.append("{ \"totalUtility\":");
             builder.append(Arrays.stream(trucks)
                     .map(t -> t.getTotalUtility())
-                    .reduce(0, (subtotal, element) -> subtotal + element));
+                    .reduce(0, summe));
             builder.append(",\"trucks\":");
             builder.append(json);
             builder.append("}");
@@ -35,4 +36,7 @@ public class Formatter implements IFormatter {
 
 
     }
+
+    private final BinaryOperator<Integer> summe =
+            (subtotal, element) -> subtotal + element;
 }

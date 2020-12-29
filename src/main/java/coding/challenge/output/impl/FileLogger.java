@@ -3,8 +3,8 @@ package coding.challenge.output.impl;
 import java.io.*;
 
 public class FileLogger extends AbstractLogger {
-    private String dirName;
-    private String fileName;
+    private final String dirName;
+    private final String fileName;
 
     public FileLogger(String dirName, String fileName) {
         this.dirName = dirName;

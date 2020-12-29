@@ -5,12 +5,13 @@ import coding.challenge.datastructures.IIterator;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.function.BinaryOperator;
 
 public class SingleItemIterator implements IIterator {
     private final IItem[] items;
     private int itemCursor = 0;
     private int itemCountCursor = -1;
-    private ArrayList<Integer> productUptoConcurrentIndex = new ArrayList<>();
+    private final ArrayList<Integer> productUptoConcurrentIndex = new ArrayList<>();
 
     public SingleItemIterator(IItem[] items) {
         this.items = items;
@@ -48,9 +49,12 @@ public class SingleItemIterator implements IIterator {
     public int maxCount() {
         return Arrays.stream(items)
                 .map(item -> item.getTargetQuantity())
-                .reduce(0, (subtotal, element) -> subtotal + element);
+                .reduce(0, summe);
 
     }
+
+    private final BinaryOperator<Integer> summe =
+            (subtotal, element) -> subtotal + element;
 
     @Override
     public void reset() {
@@ -60,7 +64,6 @@ public class SingleItemIterator implements IIterator {
 
     /**
      * @param index zero based if a product was available 2 times it has the indexes 0 and 1
-     * @return
      */
     @Override
     public IItem convertConcurrentIndexToItem(int index) {

@@ -9,14 +9,13 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 
 import java.net.URL;
 
-public class importJson implements IImportJson {
+public class ImportJson implements IImportJson {
     @Override
     public IItem[] importJsonToItem(String fileURL) {
         ObjectMapper objectMapper = new ObjectMapper();
         try {
             URL url = new URL(fileURL);
-            IItem[] items = objectMapper.readValue(url, Item[].class);
-            return items;
+            return objectMapper.readValue(url, Item[].class);
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -29,8 +28,7 @@ public class importJson implements IImportJson {
         ObjectMapper objectMapper = new ObjectMapper();
         try {
             URL url = new URL(fileURL);
-            ITruck[] trucks = objectMapper.readValue(url, Truck[].class);
-            return trucks;
+            return objectMapper.readValue(url, Truck[].class);
         } catch (Exception e) {
             e.printStackTrace();
         }

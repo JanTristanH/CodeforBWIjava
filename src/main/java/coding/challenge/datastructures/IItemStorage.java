@@ -1,7 +1,5 @@
 package coding.challenge.datastructures;
 
-import coding.challenge.datastructures.IItem;
-
 import java.util.List;
 
 public interface IItemStorage {

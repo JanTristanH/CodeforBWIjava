@@ -7,11 +7,11 @@ import coding.challenge.datastructures.IIterator;
 import coding.challenge.datastructures.ITruck;
 import coding.challenge.datastructures.impl.SingleItemIterator;
 
-public class iterativeBackpacks implements IAlgorithm {
-    private ITruck[] trucks;
-    private IItemStorage itemStorage;
+public class IterativeBackpacks implements IAlgorithm {
+    private final ITruck[] trucks;
+    private final IItemStorage itemStorage;
 
-    public iterativeBackpacks(ITruck[] trucks, IItemStorage itemStorage) {
+    public IterativeBackpacks(ITruck[] trucks, IItemStorage itemStorage) {
         this.itemStorage = itemStorage;
         this.trucks = trucks;
 
@@ -37,9 +37,6 @@ public class iterativeBackpacks implements IAlgorithm {
     }
 
     /**
-     * @param matrix
-     * @param iterator
-     * @param truck
      * @apiNote this method has side effects on truck and itemStorage
      */
     public void backtrackMatrixToIndex(int[][] matrix, IIterator iterator, ITruck truck) {

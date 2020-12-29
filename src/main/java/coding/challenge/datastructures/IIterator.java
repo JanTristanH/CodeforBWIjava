@@ -1,7 +1,5 @@
 package coding.challenge.datastructures;
 
-import coding.challenge.datastructures.IItem;
-
 public interface IIterator {
     IItem current();
 

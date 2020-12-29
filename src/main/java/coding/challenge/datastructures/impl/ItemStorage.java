@@ -3,36 +3,40 @@ package coding.challenge.datastructures.impl;
 import coding.challenge.datastructures.IItem;
 import coding.challenge.datastructures.IItemStorage;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-
-import static java.util.stream.Collectors.toList;
+import java.util.function.BinaryOperator;
 
 public class ItemStorage implements IItemStorage {
-    private Map<String, IItem> loadedProducts;
+    private final Map<String, IItem> loadedProducts;
 
     public ItemStorage() {
-        this.loadedProducts = new HashMap<String, IItem>();
+        this.loadedProducts = new HashMap<>();
     }
 
     @Override
     public int getTotalLoad() {
         return loadedProducts.values().stream()
                 .map(item -> item.getQuantity() * item.getWeightInGramm())
-                .reduce(0, (subtotal, element) -> subtotal + element);
+                .reduce(0, summe);
     }
+
+    private BinaryOperator<Integer> summe =
+            (subtotal, element) -> subtotal + element;
+
 
     @Override
     public int getTotalUtility() {
         return loadedProducts.values().stream()
                 .map(item -> item.getQuantity() * item.getUtility())
-                .reduce(0, (subtotal, element) -> subtotal + element);
+                .reduce(0, summe);
     }
 
     @Override
     public List<IItem> getAllItems() {
-        return loadedProducts.values().stream().collect(toList());
+        return new ArrayList<>(loadedProducts.values());
     }
 
     @Override
