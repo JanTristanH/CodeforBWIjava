@@ -8,8 +8,7 @@ import java.util.ArrayList;
 import static org.hamcrest.CoreMatchers.hasItems;
 import static org.hamcrest.CoreMatchers.is;
 import static org.hamcrest.MatcherAssert.assertThat;
-import static org.mockito.Mockito.mock;
-import static org.mockito.Mockito.when;
+import static org.mockito.Mockito.*;
 
 public class BackpackAlgorithmTest {
     DynBackpack cut;
@@ -90,7 +89,14 @@ public class BackpackAlgorithmTest {
                 {0, 0, 10, 30, 50, 50, 60, 80, 80, 100, 100}
         };
         cut.calculateMatrix(truck1,iterator);
-        assertThat(cut.backtrackMatrixToIndex(resultMatrix,iterator,truck1,true), hasItems(itemD, itemB));
+
+       // assertThat(cut.backtrackMatrixToIndex(resultMatrix,iterator,truck1), hasItems(itemD, itemB));
+        cut.backtrackMatrixToIndex(resultMatrix,iterator,truck1);
+        verify(truck1).loadItem(itemD);
+        verify(truck1).loadItem(itemB);
+
+        verify(iStorage).unLoadItem(itemD);
+        verify(iStorage).unLoadItem(itemB);
     }
 
 }

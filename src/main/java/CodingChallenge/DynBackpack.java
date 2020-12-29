@@ -31,42 +31,33 @@ public class DynBackpack implements IAlgorithm {
         return matrix;
     }
 
-    public ArrayList<IItem> backtrackMatrixToIndex(int[][] matrix,IIterator iterator,ITruck truck) {
-        return backtrackMatrixToIndex(matrix, iterator, truck,false) ;
-    }
-
     /**
      * @param matrix
      * @param iterator
      * @param truck
-     * @param testMode
-     * @return return value is only populated in test mode | otherwise it has side effects on truck and itemStorage
+     * @apiNote  this method has side effects on truck and itemStorage
      */
-    public ArrayList<IItem> backtrackMatrixToIndex(int[][] matrix,IIterator iterator,ITruck truck,boolean testMode) {
+    public void backtrackMatrixToIndex(int[][] matrix, IIterator iterator, ITruck truck) {
         ArrayList<IItem> itemList = new ArrayList<>();
         int currentWeight = matrix[0].length - 1;
         int currentItemIndex = matrix.length - 1;
         while (currentWeight > 0 && currentItemIndex > 0) {
             if (matrix[currentItemIndex][currentWeight] > matrix[currentItemIndex - 1][currentWeight]) {
                 IItem itemToLoad = iterator.convertConcurrentIndexToItem(currentItemIndex - 1); //- 1 as part of index shifting
-                if (testMode){
-                    itemList.add(itemToLoad);
-                }
                 truck.loadItem(itemToLoad);
                 itemStorage.unLoadItem(itemToLoad);
                 currentWeight = currentWeight - itemToLoad.getWeightInGramm();
             }
             currentItemIndex--;
         }
-        return itemList;
     }
 
     @Override
     public ITruck[] calculate() {
         for (ITruck truck : trucks) {
             IIterator iterator = new SingleItemIterator(itemStorage.getAllItems().toArray(new IItem[0]));
-            int[][] matrix = this.calculateMatrix(truck,iterator);
-            this.backtrackMatrixToIndex(matrix,iterator,truck);
+            int[][] matrix = this.calculateMatrix(truck, iterator);
+            this.backtrackMatrixToIndex(matrix, iterator, truck);
         }
         return new ITruck[0];
     }
