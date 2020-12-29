@@ -1,4 +1,6 @@
-package CodingChallenge;
+package CodingChallenge.impl;
+
+import CodingChallenge.*;
 
 import java.util.ArrayList;
 

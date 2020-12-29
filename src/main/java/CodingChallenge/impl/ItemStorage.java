@@ -1,4 +1,7 @@
-package CodingChallenge;
+package CodingChallenge.impl;
+
+import CodingChallenge.IItem;
+import CodingChallenge.IItemStorage;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -8,7 +11,7 @@ import java.util.Map;
 import static java.util.stream.Collectors.toCollection;
 import static java.util.stream.Collectors.toList;
 
-public class ItemStorage implements IItemStorage{
+public class ItemStorage implements IItemStorage {
     private Map<String, IItem> loadedProducts;
 
     public ItemStorage() {

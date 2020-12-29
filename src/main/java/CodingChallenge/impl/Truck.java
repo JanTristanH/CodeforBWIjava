@@ -1,14 +1,14 @@
-package CodingChallenge;
+package CodingChallenge.impl;
 
-import java.util.HashMap;
-import java.util.Map;
+import CodingChallenge.ITruck;
+import CodingChallenge.impl.ItemStorage;
 
 public class Truck extends ItemStorage implements ITruck {
     private int capacityGramm;
     private int weightEquipment;
 
 
-    Truck(int capacityGramm, int weightEquipment) {
+    public Truck(int capacityGramm, int weightEquipment) {
         super();
         this.weightEquipment = weightEquipment;
         this.capacityGramm = capacityGramm;
