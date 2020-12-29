@@ -61,4 +61,9 @@ public class ItemStorage implements IItemStorage {
             }
         }
     }
+
+    @Override
+    public void putItem(IItem item) {
+        loadedProducts.put(item.getName(), item);
+    }
 }

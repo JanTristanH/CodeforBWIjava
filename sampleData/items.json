@@ -1,0 +1,26 @@
+[
+  {
+    "name": "GegenstandA",
+    "targetQuantity": 1,
+    "weightInGramm": 3,
+    "utility": 30
+  },
+  {
+    "name": "GegenstandB",
+    "targetQuantity": 1,
+    "weightInGramm": 4,
+    "utility": 50
+  },
+  {
+    "name": "GegenstandC",
+    "targetQuantity": 1,
+    "weightInGramm": 2,
+    "utility": 10
+  },
+  {
+    "name": "GegenstandD",
+    "targetQuantity": 1,
+    "weightInGramm": 5,
+    "utility": 50
+  }
+]
