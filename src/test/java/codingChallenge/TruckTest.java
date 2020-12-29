@@ -1,6 +1,6 @@
-package CodingChallenge;
+package codingChallenge;
 
-import CodingChallenge.impl.Truck;
+import codingChallenge.impl.Truck;
 import org.junit.Before;
 import org.junit.Test;
 

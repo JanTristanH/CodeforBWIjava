@@ -1,4 +1,4 @@
-package CodingChallenge;
+package codingChallenge;
 
 import java.util.List;
 

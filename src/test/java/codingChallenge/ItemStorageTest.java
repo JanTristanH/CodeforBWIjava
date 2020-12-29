@@ -1,6 +1,6 @@
-package CodingChallenge;
+package codingChallenge;
 
-import CodingChallenge.impl.ItemStorage;
+import codingChallenge.impl.ItemStorage;
 import org.junit.Before;
 import org.junit.Test;
 

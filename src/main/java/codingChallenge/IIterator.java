@@ -1,6 +1,4 @@
-package CodingChallenge;
-
-import java.util.Iterator;
+package codingChallenge;
 
 public interface IIterator {
     IItem current();

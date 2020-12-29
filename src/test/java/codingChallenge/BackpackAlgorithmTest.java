@@ -1,6 +1,6 @@
-package CodingChallenge;
+package codingChallenge;
 
-import CodingChallenge.impl.DynBackpack;
+import codingChallenge.impl.DynBackpack;
 import org.junit.Before;
 import org.junit.Test;
 

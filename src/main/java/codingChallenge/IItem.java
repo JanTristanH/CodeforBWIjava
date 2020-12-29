@@ -1,4 +1,4 @@
-package CodingChallenge;
+package codingChallenge;
 
 public interface IItem {
     String getName();

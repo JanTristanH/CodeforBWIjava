@@ -1,6 +1,6 @@
-package CodingChallenge;
+package codingChallenge;
 
-import CodingChallenge.impl.SingleItemIterator;
+import codingChallenge.impl.SingleItemIterator;
 import org.junit.Before;
 import org.junit.Test;
 

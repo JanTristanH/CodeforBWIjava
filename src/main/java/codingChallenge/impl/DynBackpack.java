@@ -1,6 +1,6 @@
-package CodingChallenge.impl;
+package codingChallenge.impl;
 
-import CodingChallenge.*;
+import codingChallenge.*;
 
 import java.util.ArrayList;
 
@@ -61,6 +61,6 @@ public class DynBackpack implements IAlgorithm {
             int[][] matrix = this.calculateMatrix(truck, iterator);
             this.backtrackMatrixToIndex(matrix, iterator, truck);
         }
-        return new ITruck[0];
+        return trucks;
     }
 }

@@ -1,14 +1,12 @@
-package CodingChallenge.impl;
+package codingChallenge.impl;
 
-import CodingChallenge.IItem;
-import CodingChallenge.IItemStorage;
+import codingChallenge.IItem;
+import codingChallenge.IItemStorage;
 
-import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import static java.util.stream.Collectors.toCollection;
 import static java.util.stream.Collectors.toList;
 
 public class ItemStorage implements IItemStorage {

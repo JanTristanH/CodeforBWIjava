@@ -1,6 +1,6 @@
-package CodingChallenge.impl;
+package codingChallenge.impl;
 
-import CodingChallenge.IItem;
+import codingChallenge.IItem;
 
 public class Item implements IItem {
     private String name;

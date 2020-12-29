@@ -1,7 +1,7 @@
-package CodingChallenge.impl;
+package codingChallenge.impl;
 
-import CodingChallenge.IItem;
-import CodingChallenge.IIterator;
+import codingChallenge.IItem;
+import codingChallenge.IIterator;
 
 import java.util.ArrayList;
 import java.util.Arrays;
