@@ -11,9 +11,9 @@ public interface IItem {
 
     int getWeightInGramm();
 
+    void setWeightInGramm(int weightInGramm);
+
     int getUtility();
 
     IItem clone();
-
-    void setWeightInGramm(int weightInGramm);
 }

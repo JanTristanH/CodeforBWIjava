@@ -1,10 +1,10 @@
 package coding.challenge;
 
+import coding.challenge.algorithm.impl.IterativeBackpacks;
 import coding.challenge.datastructures.IItem;
 import coding.challenge.datastructures.IItemStorage;
 import coding.challenge.datastructures.IIterator;
 import coding.challenge.datastructures.ITruck;
-import coding.challenge.algorithm.impl.IterativeBackpacks;
 import org.junit.Before;
 import org.junit.Test;
 

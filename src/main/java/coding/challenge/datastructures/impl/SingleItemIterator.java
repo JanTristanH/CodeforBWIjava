@@ -9,9 +9,11 @@ import java.util.function.BinaryOperator;
 
 public class SingleItemIterator implements IIterator {
     private final IItem[] items;
+    private final ArrayList<Integer> productUptoConcurrentIndex = new ArrayList<>();
+    private final BinaryOperator<Integer> summe =
+            (subtotal, element) -> subtotal + element;
     private int itemCursor = 0;
     private int itemCountCursor = -1;
-    private final ArrayList<Integer> productUptoConcurrentIndex = new ArrayList<>();
 
     public SingleItemIterator(IItem[] items) {
         this.items = items;
@@ -25,9 +27,9 @@ public class SingleItemIterator implements IIterator {
     @Override
     public IItem next() {
         if (items[itemCursor].getTargetQuantity() <= itemCountCursor + 1) {
-            if (productUptoConcurrentIndex.isEmpty()){
+            if (productUptoConcurrentIndex.isEmpty()) {
                 productUptoConcurrentIndex.add(itemCountCursor + 1);
-            }else {
+            } else {
                 productUptoConcurrentIndex.add(productUptoConcurrentIndex.get(productUptoConcurrentIndex.size() - 1) + itemCountCursor + 1);
             }
             itemCountCursor = -1;
@@ -52,9 +54,6 @@ public class SingleItemIterator implements IIterator {
                 .reduce(0, summe);
 
     }
-
-    private final BinaryOperator<Integer> summe =
-            (subtotal, element) -> subtotal + element;
 
     @Override
     public void reset() {

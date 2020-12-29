@@ -2,7 +2,7 @@ package coding.challenge.datastructures.impl;
 
 import coding.challenge.datastructures.IItem;
 
-public class Item implements IItem,Cloneable {
+public class Item implements IItem, Cloneable {
     private String name = "";
     private int targetQuantity;
     private int quantity;
@@ -51,12 +51,14 @@ public class Item implements IItem,Cloneable {
     }
 
     @Override
-    public int getUtility() {
-        return utility;
+    public void setWeightInGramm(int weightInGramm) {
+        this.weightInGramm = weightInGramm;
     }
 
     @Override
-    public void setWeightInGramm(int weightInGramm){this.weightInGramm = weightInGramm;}
+    public int getUtility() {
+        return utility;
+    }
 
     public IItem clone() {
         return new Item(name, targetQuantity, quantity, weightInGramm, utility);

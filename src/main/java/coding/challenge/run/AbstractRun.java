@@ -17,14 +17,6 @@ import java.util.List;
 public abstract class AbstractRun {
 
 
-    protected AbstractRun(String TRUCKS_PATH, String ITEMS_PATH, String RESULT_PATH, String TARGET_DIR, int PRECISION) {
-        this.TRUCKS_PATH = TRUCKS_PATH;
-        this.ITEMS_PATH = ITEMS_PATH;
-        this.RESULT_PATH = RESULT_PATH;
-        this.TARGET_DIR = TARGET_DIR;
-        this.PRECISION = PRECISION;
-    }
-
     protected String TRUCKS_PATH;
     protected String ITEMS_PATH;
     protected String RESULT_PATH;
@@ -33,6 +25,13 @@ public abstract class AbstractRun {
      * multiple of 10 | shifts decimal nu,ber to reduce Storage requirement
      */
     protected int PRECISION;
+    protected AbstractRun(String TRUCKS_PATH, String ITEMS_PATH, String RESULT_PATH, String TARGET_DIR, int PRECISION) {
+        this.TRUCKS_PATH = TRUCKS_PATH;
+        this.ITEMS_PATH = ITEMS_PATH;
+        this.RESULT_PATH = RESULT_PATH;
+        this.TARGET_DIR = TARGET_DIR;
+        this.PRECISION = PRECISION;
+    }
 
     protected ITruck[] getTrucks(IImportJson i) {
         ITruck[] trucks = i.importJsonToTruck(TRUCKS_PATH);

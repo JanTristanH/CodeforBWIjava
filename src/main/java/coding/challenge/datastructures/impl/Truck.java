@@ -23,12 +23,12 @@ public class Truck extends ItemStorage implements ITruck {
         return getCapacity();
     }
 
-    public int getCapacity() {
-        return capacityGramm;
-    }
-
     public void setCapacityGramm(int capacityGramm) {
         this.capacityGramm = capacityGramm;
+    }
+
+    public int getCapacity() {
+        return capacityGramm;
     }
 
     public int getFreeCapacity() {

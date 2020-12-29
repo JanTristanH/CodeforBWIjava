@@ -11,6 +11,9 @@ import java.util.List;
 import java.util.function.BinaryOperator;
 
 public class Formatter implements IFormatter {
+    private final BinaryOperator<Integer> summe =
+            (subtotal, element) -> subtotal + element;
+
     @Override
     public void generateOutput(List<ILogger> loggers, ITruck[] trucks) {
         ObjectMapper mapper = new ObjectMapper();
@@ -36,7 +39,4 @@ public class Formatter implements IFormatter {
 
 
     }
-
-    private final BinaryOperator<Integer> summe =
-            (subtotal, element) -> subtotal + element;
 }

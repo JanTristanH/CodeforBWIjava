@@ -11,6 +11,8 @@ import java.util.function.BinaryOperator;
 
 public class ItemStorage implements IItemStorage {
     private final Map<String, IItem> loadedProducts;
+    private BinaryOperator<Integer> summe =
+            (subtotal, element) -> subtotal + element;
 
     public ItemStorage() {
         this.loadedProducts = new HashMap<>();
@@ -22,10 +24,6 @@ public class ItemStorage implements IItemStorage {
                 .map(item -> item.getQuantity() * item.getWeightInGramm())
                 .reduce(0, summe);
     }
-
-    private BinaryOperator<Integer> summe =
-            (subtotal, element) -> subtotal + element;
-
 
     @Override
     public int getTotalUtility() {
