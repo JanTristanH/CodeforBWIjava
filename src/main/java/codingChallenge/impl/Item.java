@@ -3,11 +3,15 @@ package codingChallenge.impl;
 import codingChallenge.IItem;
 
 public class Item implements IItem {
-    private String name;
+    private String name = "";
     private int targetQuantity;
     private int quantity;
     private int weightInGramm;
     private int utility;
+
+    public Item(){
+
+    }
 
     public Item(String name, int targetQuantity, int quantity, int weightInGramm, int utility) {
         this.name = name;

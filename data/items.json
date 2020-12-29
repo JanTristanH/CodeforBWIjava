@@ -1,0 +1,51 @@
+[{
+  "name": "Notebook Büro 13\"",
+  "targetQuantity": 205,
+  "weightInGramm": 2451,
+  "utility": 40
+}, {
+  "name": "Notebook Büro 14\"",
+  "targetQuantity": 420,
+  "weightInGramm": 2978,
+  "utility": 35
+}, {
+  "name": "Notebook",
+  "targetQuantity": 450,
+  "weightInGramm": 3625,
+  "utility": 80
+}, {
+  "name": "Mobiltelefon Büro",
+  "targetQuantity": 60,
+  "weightInGramm": 717,
+  "utility": 30
+}, {
+  "name": "Mobiltelefon Outdoor",
+  "targetQuantity": 157,
+  "weightInGramm": 988,
+  "utility": 60
+}, {
+  "name": "Mobiltelefon Heavy Duty",
+  "targetQuantity": 220,
+  "weightInGramm": 1220,
+  "utility": 65
+}, {
+  "name": "Tablet Büro klein",
+  "targetQuantity": 620,
+  "weightInGramm": 1405,
+  "utility": 40
+}, {
+  "name": "Tablet Büro groß",
+  "targetQuantity": 250,
+  "weightInGramm": 1455,
+  "utility": 40
+}, {
+  "name": "Tablet outdoor klein",
+  "targetQuantity": 540,
+  "weightInGramm": 1690,
+  "utility": 45
+}, {
+  "name": "Tablet outdoor groß",
+  "targetQuantity": 370,
+  "weightInGramm": 1980,
+  "utility": 68
+}]
