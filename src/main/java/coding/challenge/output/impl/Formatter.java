@@ -1,6 +1,6 @@
 package coding.challenge.output.impl;
 
-import coding.challenge.ITruck;
+import coding.challenge.datastructures.ITruck;
 import coding.challenge.output.IFormatter;
 import coding.challenge.output.ILogger;
 import com.fasterxml.jackson.core.JsonProcessingException;

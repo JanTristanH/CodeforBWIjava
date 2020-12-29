@@ -1,7 +1,11 @@
 package coding.challenge;
 
-import coding.challenge.impl.DynBackpack;
-import coding.challenge.impl.ItemStorage;
+import coding.challenge.algorithm.IAlgorithm;
+import coding.challenge.datastructures.IItem;
+import coding.challenge.datastructures.IItemStorage;
+import coding.challenge.datastructures.ITruck;
+import coding.challenge.algorithm.impl.iterativeBackpacks;
+import coding.challenge.datastructures.impl.ItemStorage;
 import coding.challenge.input.IImportJson;
 import coding.challenge.input.impl.importJson;
 import coding.challenge.output.ILogger;
@@ -26,7 +30,7 @@ public class Sample {
         ITruck[] trucks = i.importJsonToTruck("file:sampleData/trucks.json");
 
 
-        IAlgorithm algorithm = new DynBackpack(trucks, itemStorage);
+        IAlgorithm algorithm = new iterativeBackpacks(trucks, itemStorage);
 
         new Formatter().generateOutput(loggers, algorithm.calculate());
     }

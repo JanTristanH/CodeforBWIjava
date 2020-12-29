@@ -1,6 +1,7 @@
 package coding.challenge;
 
-import coding.challenge.impl.ItemStorage;
+import coding.challenge.datastructures.IItem;
+import coding.challenge.datastructures.impl.ItemStorage;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -20,11 +21,13 @@ public class ItemStorageTest {
         when(item1.getName()).thenReturn("item1");
         when(item1.getWeightInGramm()).thenReturn(15);
         when(item1.getQuantity()).thenReturn(1);
+        when(item1.clone()).thenReturn(item1);
 
         item2 = mock(IItem.class);
         when(item2.getName()).thenReturn("item2");
         when(item2.getWeightInGramm()).thenReturn(10);
         when(item2.getQuantity()).thenReturn(1);
+        when(item2.clone()).thenReturn(item2);
 
         cut = new ItemStorage();
     }

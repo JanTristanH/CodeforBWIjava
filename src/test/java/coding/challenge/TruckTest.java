@@ -1,6 +1,7 @@
 package coding.challenge;
 
-import coding.challenge.impl.Truck;
+import coding.challenge.datastructures.IItem;
+import coding.challenge.datastructures.impl.Truck;
 import org.junit.Before;
 import org.junit.Test;
 

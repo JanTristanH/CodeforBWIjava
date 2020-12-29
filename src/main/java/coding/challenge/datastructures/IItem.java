@@ -1,4 +1,4 @@
-package coding.challenge;
+package coding.challenge.datastructures;
 
 public interface IItem {
     String getName();

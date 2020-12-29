@@ -1,7 +1,7 @@
-package coding.challenge.impl;
+package coding.challenge.datastructures.impl;
 
-import coding.challenge.IItem;
-import coding.challenge.IItemStorage;
+import coding.challenge.datastructures.IItem;
+import coding.challenge.datastructures.IItemStorage;
 
 import java.util.HashMap;
 import java.util.List;

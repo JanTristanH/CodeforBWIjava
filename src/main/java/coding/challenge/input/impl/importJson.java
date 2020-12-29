@@ -1,9 +1,9 @@
 package coding.challenge.input.impl;
 
-import coding.challenge.IItem;
-import coding.challenge.ITruck;
-import coding.challenge.impl.Item;
-import coding.challenge.impl.Truck;
+import coding.challenge.datastructures.IItem;
+import coding.challenge.datastructures.ITruck;
+import coding.challenge.datastructures.impl.Item;
+import coding.challenge.datastructures.impl.Truck;
 import coding.challenge.input.IImportJson;
 import com.fasterxml.jackson.databind.ObjectMapper;
 

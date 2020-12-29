@@ -1,7 +1,7 @@
-package coding.challenge.impl;
+package coding.challenge.datastructures.impl;
 
-import coding.challenge.IItem;
-import coding.challenge.IIterator;
+import coding.challenge.datastructures.IItem;
+import coding.challenge.datastructures.IIterator;
 
 import java.util.ArrayList;
 import java.util.Arrays;

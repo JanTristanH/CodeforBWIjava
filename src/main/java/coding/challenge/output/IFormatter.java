@@ -1,6 +1,6 @@
 package coding.challenge.output;
 
-import coding.challenge.ITruck;
+import coding.challenge.datastructures.ITruck;
 
 import java.util.List;
 

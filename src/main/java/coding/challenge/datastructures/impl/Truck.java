@@ -1,6 +1,6 @@
-package coding.challenge.impl;
+package coding.challenge.datastructures.impl;
 
-import coding.challenge.ITruck;
+import coding.challenge.datastructures.ITruck;
 
 public class Truck extends ItemStorage implements ITruck {
     private int capacityGramm;

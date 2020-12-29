@@ -1,6 +1,10 @@
 package coding.challenge;
 
-import coding.challenge.impl.DynBackpack;
+import coding.challenge.datastructures.IItem;
+import coding.challenge.datastructures.IItemStorage;
+import coding.challenge.datastructures.IIterator;
+import coding.challenge.datastructures.ITruck;
+import coding.challenge.algorithm.impl.iterativeBackpacks;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -11,7 +15,7 @@ import static org.hamcrest.MatcherAssert.assertThat;
 import static org.mockito.Mockito.*;
 
 public class BackpackAlgorithmTest {
-    DynBackpack cut;
+    iterativeBackpacks cut;
     IIterator iterator;
     ITruck truck1;
     IItem itemA = mock(IItem.class);
@@ -66,7 +70,7 @@ public class BackpackAlgorithmTest {
 
         when(iStorage.getAllItems()).thenReturn(al);
 
-        cut = new DynBackpack(new ITruck[]{truck1}, iStorage);
+        cut = new iterativeBackpacks(new ITruck[]{truck1}, iStorage);
     }
 
     @Test

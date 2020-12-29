@@ -1,12 +1,17 @@
-package coding.challenge.impl;
+package coding.challenge.algorithm.impl;
 
-import coding.challenge.*;
+import coding.challenge.algorithm.IAlgorithm;
+import coding.challenge.datastructures.IItem;
+import coding.challenge.datastructures.IItemStorage;
+import coding.challenge.datastructures.IIterator;
+import coding.challenge.datastructures.ITruck;
+import coding.challenge.datastructures.impl.SingleItemIterator;
 
-public class DynBackpack implements IAlgorithm {
+public class iterativeBackpacks implements IAlgorithm {
     private ITruck[] trucks;
     private IItemStorage itemStorage;
 
-    public DynBackpack(ITruck[] trucks, IItemStorage itemStorage) {
+    public iterativeBackpacks(ITruck[] trucks, IItemStorage itemStorage) {
         this.itemStorage = itemStorage;
         this.trucks = trucks;
 
