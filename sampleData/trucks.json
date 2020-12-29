@@ -2,5 +2,9 @@
   {
     "capacityGramm": 11,
     "weightEquipment": 1
+  },
+  {
+    "capacityGramm": 2,
+    "weightEquipment": 0
   }
 ]
