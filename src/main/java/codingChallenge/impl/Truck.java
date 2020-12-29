@@ -6,12 +6,14 @@ public class Truck extends ItemStorage implements ITruck {
     private int capacityGramm;
     private int weightEquipment;
 
+    public Truck(){
+
+    }
 
     public Truck(int capacityGramm, int weightEquipment) {
         super();
         this.weightEquipment = weightEquipment;
         this.capacityGramm = capacityGramm;
-
     }
 
     public int getCapacityGramm() {
