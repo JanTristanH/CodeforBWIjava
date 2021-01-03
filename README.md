@@ -17,8 +17,11 @@ Eine genauere Berechnung kann erfolgen, indem in der Klasse Main Zeile 9 ein kom
 Die beste von mir errechnete Ladeliste erreicht einen Gesamtwert von `73394`.
  
 ## Startanleitung
+- Die zu verladenden Items und verfügbaren Trucks können im `data` Ordner verändert werden
+- in der letzten pipeline im repository kann die vollständige jar als artefakt runter geladen werden.
+- diese jar muss sich zum Zeitpunkt der Ausführung im selben verzeichnis befinden, wie der data Ordner mit den json Dateien für die Items und Trucks 
+Alternativ kann auch:
 -  mittels maven sollten die Lifecycle Methoden `clean` und `install` ausgeführt werden
     - (dies kann z.B. über die intellij IDE über den maven Reiter geschehen) 
     - in intellij kann es auch erforderlich sein über `Project Structure` die Project SDK auszuwählen (java 13 wurde zum Erstellen verwendet)
 - Nun kann die Anwendung über die `Main` Klasse in `src/main/java/coding/challenge` gestated werden.
-- Die zu verladenden Items und verfügbaren Trucks können im `data` Ordner verändert werden (oder der Dateipfad beim Starten der Berechnung)
