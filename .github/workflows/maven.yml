@@ -22,3 +22,6 @@ jobs:
         java-version: 1.8
     - name: Build with Maven
       run: mvn -B package --file pom.xml
+      with:
+        name: artifact
+        path: ./target/CodeforBWIjava-1.0-SNAPSHOT-jar-with-dependencies.jar
