@@ -18,8 +18,8 @@ Die beste von mir errechnete Ladeliste erreicht einen Gesamtwert von `73394`.
  
 ## Startanleitung
 - Die zu verladenden Items und verfügbaren Trucks können im `data` Ordner verändert werden. Dieser muss sich zum Ausführungszeitpunkt im aktuellen Verzeichnis befinden 
-- in der neusten Pipeline des Repository kann die vollständige jar als Artefakt runter geladen werden (anlegen des data Ordners im selben verzeichnis notwendig).
-- diese jar muss sich zum Zeitpunkt der Ausführung im selben verzeichnis befinden, wie der data Ordner mit den json Dateien für die Items und Trucks 
+- in der neusten Pipeline des Repository kann die vollständige jar als Artefakt runter geladen werden (anlegen des data Ordners im selben Verzeichnis notwendig).
+- diese jar muss sich zum Zeitpunkt der Ausführung im selben Verzeichnis befinden, wie der data Ordner mit den json Dateien für die Items und Trucks 
 Alternativ kann auch:
 -  mittels maven sollten die Lifecycle Methoden `clean` und `install` ausgeführt werden
     - (dies kann z.B. über die intellij IDE über den maven Reiter geschehen) 
