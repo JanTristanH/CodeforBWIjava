@@ -50,6 +50,7 @@
                         </manifest>
                     </archive>
                 </configuration>
+                <version>3.0.2</version>
             </plugin>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
