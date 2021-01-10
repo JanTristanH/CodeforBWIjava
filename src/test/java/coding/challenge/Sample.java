@@ -22,12 +22,12 @@ public class Sample {
         loggers.add(new FileLogger(".", "result.json"));
         IItemStorage itemStorage = new ItemStorage();
 
-        IItem[] items = i.importJsonToItem("file:sampleData/items.json");
+        IItem[] items = i.importJsonToItem("file:src/test/sampleData/items.json");
         for (IItem item : items) {
             item.setQuantity(item.getTargetQuantity());
             itemStorage.putItem(item);
         }
-        ITruck[] trucks = i.importJsonToTruck("file:sampleData/trucks.json");
+        ITruck[] trucks = i.importJsonToTruck("file:src/test/sampleData/trucks.json");
 
 
         IAlgorithm algorithm = new IterativeBackpacks(trucks, itemStorage);
